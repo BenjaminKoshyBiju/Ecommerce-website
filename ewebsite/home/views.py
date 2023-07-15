@@ -1,8 +1,13 @@
 from django.shortcuts import render
-
+from .models import Table1,Table2
 # Create your views here.
+table1_data = Table1.objects.all()  
+table2_data = Table2.objects.all()
 def index(request):
-    return render(request,'index.html')
+    return render(request,'index.html',{
+        'table1_data': table1_data,
+        'table2_data': table2_data,
+        })
 def shop(request):
     return render(request,'shop.html')
 def detail(request):
